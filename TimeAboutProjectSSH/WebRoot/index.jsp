@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <form action="">
+    <form action="UserLogin!UserLogin.action">
     	<table align="center">
     		<tr>
     			<td>用户名:</td>

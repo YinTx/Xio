@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans
-	xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-
-
-	<bean id="dataSource"
-		class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName"
-			value="com.mysql.jdbc.Driver">
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver">
 		</property>
+		<!-- //q815030560.xicp.net:49057 -->
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/abouttime">
+			value="jdbc:mysql://q815030560.xicp.net:13280/abouttime">
 		</property>
 		<property name="username" value="root"></property>
 	</bean>
@@ -28,4 +23,25 @@
 				</prop>
 			</props>
 		</property>
-	</bean></beans>
+		<property name="mappingResources">
+			<list>
+				<value>com/timeabout/yzq/bean/UserTab.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 把Session工厂注入给hibernateTemplate -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<constructor-arg>
+			<ref local="sessionFactory" />
+		</constructor-arg>
+	</bean>
+	<bean id="userLoginDAO" class="com.timeabout.yzq.dao.UserLoginDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="loginService" class="com.timeabout.yzq.service.UserServiceImpl">
+		<property name="dao" ref="userLoginDAO"></property>
+	</bean>
+	<bean id="loginAction" class="com.timeabout.yzq.action.LoginAction">
+		<property name="userService" ref="loginService"></property>
+	</bean>
+</beans>
