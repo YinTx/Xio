@@ -8,13 +8,13 @@
     <class name="com.timeabout.yzq.bean.UserTab" table="user_tab" catalog="abouttime">
         <id name="UId" type="java.lang.Integer">
             <column name="u_id" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
-        <property name="UName" type="java.lang.String">
-            <column name="u_name" not-null="true" />
+        <property name="username" type="java.lang.String">
+            <column name="username" not-null="true" />
         </property>
-        <property name="UPwd" type="java.lang.String">
-            <column name="u_pwd" not-null="true" />
+        <property name="password" type="java.lang.String">
+            <column name="password" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

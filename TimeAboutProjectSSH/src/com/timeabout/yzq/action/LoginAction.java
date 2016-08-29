@@ -12,8 +12,8 @@ public class LoginAction extends ActionSupport{
 	}  
 	public String UserLogin(){
 		UserTab user=new UserTab();
-		user.setUName("xiao");
-		user.setUPwd("1234562");
+		user.setUsername("xiao");
+		user.setPassword("1234562");
 		userService.UserLogin(user);
 		return "scccc";
 	}

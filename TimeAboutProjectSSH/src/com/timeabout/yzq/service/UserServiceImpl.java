@@ -33,9 +33,9 @@ public class UserServiceImpl  {
 	}
 
 	public boolean UserLogin(UserTab user) {
-		user=dao.findUserByNameAndPass(user.getUName(),user.getUPwd());
+		user=dao.findUserByNameAndPass(user.getUsername(),user.getPassword());
 		if(user!=null){
-			System.out.println(user.getUName());
+			System.out.println(user.getUsername());
 		}else{
 			System.out.println("UserÎª¿Õ");
 		}

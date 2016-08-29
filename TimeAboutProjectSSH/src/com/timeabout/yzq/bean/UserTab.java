@@ -9,8 +9,8 @@ public class UserTab implements java.io.Serializable {
 	// Fields
 
 	private Integer UId;
-	private String UName;
-	private String UPwd;
+	private String username;
+	private String password;
 
 	// Constructors
 
@@ -19,10 +19,9 @@ public class UserTab implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public UserTab(Integer UId, String UName, String UPwd) {
-		this.UId = UId;
-		this.UName = UName;
-		this.UPwd = UPwd;
+	public UserTab(String username, String password) {
+		this.username = username;
+		this.password = password;
 	}
 
 	// Property accessors
@@ -35,20 +34,20 @@ public class UserTab implements java.io.Serializable {
 		this.UId = UId;
 	}
 
-	public String getUName() {
-		return this.UName;
+	public String getUsername() {
+		return this.username;
 	}
 
-	public void setUName(String UName) {
-		this.UName = UName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getUPwd() {
-		return this.UPwd;
+	public String getPassword() {
+		return this.password;
 	}
 
-	public void setUPwd(String UPwd) {
-		this.UPwd = UPwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }
