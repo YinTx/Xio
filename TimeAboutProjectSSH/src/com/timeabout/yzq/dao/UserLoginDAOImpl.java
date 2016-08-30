@@ -34,8 +34,8 @@ public class UserLoginDAOImpl extends HibernateDaoSupport {
 
 	public UserTab findUserByNameAndPass(String name, String password) {
 		UserTab user = null;
-		String hql = "from UserTab";
-		List<UserTab> list = this.getHibernateTemplate().find(hql);
+		String hql = "from UserTab where username=? and password=?";
+		List<UserTab> list = this.getHibernateTemplate().find(hql,new String[]{name,password});
 		 if(list!=null && list.size()>0){//若找到的list不为空那么则说明数据库中包含这个人
 		 user = list.get(0);
 		 }

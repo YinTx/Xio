@@ -5,7 +5,7 @@ import java.util.List;
 import com.timeabout.yzq.bean.UserTab;
 import com.timeabout.yzq.dao.UserLoginDAOImpl;
 
-public class UserServiceImpl  {
+public class UserServiceImpl {
 	private UserLoginDAOImpl dao;
 
 	public void setDao(UserLoginDAOImpl dao) {
@@ -32,14 +32,16 @@ public class UserServiceImpl  {
 		return this.dao.findUserById(id);
 	}
 
-	public boolean UserLogin(UserTab user) {
+	public UserTab UserLogin(UserTab user) {
 		user=dao.findUserByNameAndPass(user.getUsername(),user.getPassword());
 		if(user!=null){
 			System.out.println(user.getUsername());
+			return user;
 		}else{
 			System.out.println("UserÎª¿Õ");
+			return null;
 		}
-		return false;
+		
 	}
 
 }
