@@ -5,9 +5,8 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver">
 		</property>
-		<!-- //q815030560.xicp.net:49057 -->
 		<property name="url"
-			value="jdbc:mysql://q815030560.xicp.net:13280/abouttime">
+			value="jdbc:mysql://q815030560.xicp.net:51980/abouttime">
 		</property>
 		<property name="username" value="root"></property>
 	</bean>

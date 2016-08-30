@@ -33,9 +33,9 @@ public class UserServiceImpl {
 	}
 
 	public UserTab UserLogin(UserTab user) {
-		user=dao.findUserByNameAndPass(user.getUsername(),user.getPassword());
+		user=dao.findUserByName(user.getUName());
 		if(user!=null){
-			System.out.println(user.getUsername());
+			System.out.println(user.getUName());
 			return user;
 		}else{
 			System.out.println("UserÎª¿Õ");

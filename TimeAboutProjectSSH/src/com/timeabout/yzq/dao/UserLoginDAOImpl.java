@@ -31,11 +31,10 @@ public class UserLoginDAOImpl extends HibernateDaoSupport {
 		user = (UserTab) this.getHibernateTemplate().get(UserTab.class, id);
 		return user;
 	}
-
-	public UserTab findUserByNameAndPass(String name, String password) {
+	public UserTab findUserByName(String name) {
 		UserTab user = null;
-		String hql = "from UserTab where username=? and password=?";
-		List<UserTab> list = this.getHibernateTemplate().find(hql,new String[]{name,password});
+		String hql = "from UserTab where UName=?";
+		List<UserTab> list = this.getHibernateTemplate().find(hql,name);
 		 if(list!=null && list.size()>0){//若找到的list不为空那么则说明数据库中包含这个人
 		 user = list.get(0);
 		 }
